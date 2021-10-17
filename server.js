@@ -1,3 +1,4 @@
+const express = require("express");
 const app=require('express')()
 const server=require('http').Server(app);
 const next=require('next');
@@ -12,6 +13,8 @@ app.use(express.json());
 connectDb();
 
 nextApp.prepare().then(()=>{
+    app.use('/api/signup',require("./api/signup"));
+    app.use('/api/auth',require('./api/auth'));
     app.all('*',(req,res)=>handle(req,res));
 
 
