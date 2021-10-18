@@ -18,7 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _utils_baseUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/baseUrl */ "./utils/baseUrl.js");
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_project\\voiceless_saints\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\New folder (13)\\Voiceless_Saints\\pages\\index.js";
 
 
 
