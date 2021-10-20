@@ -9,7 +9,7 @@ export const HeaderMessage=()=>{
 
    return(
        <Message attached 
-       color="dark blue"
+       color="blue"
        header={signupRoute ? "Get Started":"Welcome Back!!"} 
        icon={signupRoute? "settings":"privacy"}
        content={signupRoute?"Create New Account":"Login with Email and Password"}
@@ -38,7 +38,7 @@ export const FooterMessage=()=>{
         </> 
         ):(
         <>
-        <Message attached="bottom" danger>
+        <Message attached="bottom" info>
             <Icon name="lock" />
             Existing User?
             <Link href="/reset">
