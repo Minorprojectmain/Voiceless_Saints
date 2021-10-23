@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Layout\\NoData.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Layout\\NoData.js";
 
 const NoProfilePosts = () => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
   children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__.Message, {
@@ -128,7 +128,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Layout\\PlaceHolderGroup.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Layout\\PlaceHolderGroup.js";
 
 
 
@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-toastify */ "react-toastify");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Layout\\Toastr.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Layout\\Toastr.js";
 
 const PostDeleteToastr = () => {
   return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_toastify__WEBPACK_IMPORTED_MODULE_1__.ToastContainer, {
@@ -458,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NoImageModal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./NoImageModal */ "./components/Post/NoImageModal.js");
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\CardPost.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\CardPost.js";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -771,7 +771,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _utils_postActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/postActions */ "./utils/postActions.js");
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\CommentInputField.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\CommentInputField.js";
 
 
 
@@ -841,7 +841,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_postActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/postActions */ "./utils/postActions.js");
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\CreatePost.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\CreatePost.js";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -1114,7 +1114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LikesList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LikesList */ "./components/Post/LikesList.js");
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\ImageModal.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\ImageModal.js";
 
 
 
@@ -1332,7 +1332,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_PlaceHolderGroup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Layout/PlaceHolderGroup */ "./components/Layout/PlaceHolderGroup.js");
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\LikesList.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\LikesList.js";
 
 
 
@@ -1466,7 +1466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_postActions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/postActions */ "./utils/postActions.js");
 /* harmony import */ var _LikesList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./LikesList */ "./components/Post/LikesList.js");
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\NoImageModal.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\NoImageModal.js";
 
 
 
@@ -1639,7 +1639,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_postActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/postActions */ "./utils/postActions.js");
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Post\\PostComments.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Post\\PostComments.js";
 
 
 
@@ -1763,7 +1763,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_12__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\pages\\index.js";
 
 
 
@@ -1923,7 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_moment__WEBPACK_IMPORTED_MODULE_2__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\utils\\calculateTime.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\utils\\calculateTime.js";
 
 
 

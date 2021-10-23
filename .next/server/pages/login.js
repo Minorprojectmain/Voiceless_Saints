@@ -26,7 +26,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\components\\Common\\WelcomeMessage.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\components\\Common\\WelcomeMessage.js";
 
 
 
@@ -149,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_5__);
 
 
-var _jsxFileName = "C:\\Users\\Nisha Yadav\\Desktop\\Minor_pro\\Voiceless_Saints\\pages\\login.js";
+var _jsxFileName = "C:\\Users\\Om Bindal\\Desktop\\newtocheck\\Voiceless_Saints\\pages\\login.js";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
