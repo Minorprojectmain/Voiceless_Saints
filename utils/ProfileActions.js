@@ -35,3 +35,48 @@ export const unfollowUser = async (userToUnfollowId, setUserFollowStats) => {
   }
 };
 
+export const profileUpdate = async (profile, setLoading, setError, profilePicUrl) => {
+  try {
+    const { address,bio, facebook, youtube, twitter, instagram } = profile;
+
+    await Axios.post(`/update`, {
+      address,
+      bio,
+      facebook,
+      youtube,
+      twitter,
+      instagram,
+      profilePicUrl
+    });
+
+    setLoading(false);
+    Router.reload();
+  } catch (error) {
+    setError(catchErrors(error));
+    setLoading(false);
+  }
+};
+
+
+export const passwordUpdate = async (setSuccess, userPasswords) => {
+  const { currentPassword, newPassword } = userPasswords;
+  try {
+    await Axios.post(`/settings/password`, { currentPassword, newPassword });
+
+    setSuccess(true);
+  } catch (error) {
+    alert(catchErrors(error));
+  }
+};
+
+export const toggleMessagePopup = async (popupSetting, setPopupSetting, setSuccess) => {
+  try {
+    await Axios.post(`/settings/messagePopup`);
+
+    setPopupSetting(!popupSetting);
+    setSuccess(true);
+  } catch (error) {
+    alert(catchErrors(error));
+  }
+};
+
