@@ -182,12 +182,13 @@ router.post("/update", authMiddleware, async (req, res) => {
   try {
     const { userId } = req;
 
-    const { bio, facebook, youtube, twitter, instagram, profilePicUrl } = req.body;
+    const { address,bio, facebook, youtube, twitter, instagram, profilePicUrl } = req.body;
 
     let profileFields = {};
     profileFields.user = user._id;
 
     profileFields.bio = bio;
+    profileFields.address=address;
 
     profileFields.social = {};
 

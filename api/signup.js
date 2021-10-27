@@ -37,6 +37,7 @@ router.post("/", async (req, res) => {
     email,
     username,
     password,
+    address,
     bio,
     facebook,
     youtube,
@@ -72,7 +73,7 @@ router.post("/", async (req, res) => {
     profileFields.user = user._id;
 
     profileFields.bio = bio;
-
+    profileFields.address=address;
     profileFields.social = {};
     if (facebook) profileFields.social.facebook = facebook;
     if (youtube) profileFields.social.youtube = youtube;

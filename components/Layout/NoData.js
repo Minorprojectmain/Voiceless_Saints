@@ -37,6 +37,15 @@ export const NoPosts = () => (
   />
 );
 
+export const NoNotifications = () => (
+  <Message
+    info
+    icon="meh"
+    header="Hey!"
+    content="No Notications for you!!:)"
+  />
+);
+
 export const NoProfile = () => (
   <Message info icon="meh" header="Hey!" content="No Profile Found." />
 );
