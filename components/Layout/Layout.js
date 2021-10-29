@@ -18,11 +18,15 @@ Segment
 //import { Container } from "semantic-ui-react";
 import nprogress from 'nprogress';
 import 'semantic-ui-css/semantic.min.css';
-import Router from 'next/router';
+import Router,{useRouter} from 'next/router';
 import SideMenu from "./Sidemenu";
 import Search from "./Search";
 function Layout({children,user}) {
 const contextRef = createRef();
+
+const router = useRouter();
+
+const messagesRoute = router.pathname==="/messages";
   Router.onRouteChangeStart=() => nprogress.start()
   Router.onRouteChangeComplete=()=>nprogress.done()
   Router.onRouteChangeError=()=>nprogress.done()
@@ -42,7 +46,9 @@ const contextRef = createRef();
 
 <Grid>
 
-<Grid.Column floated="left" width={2}>
+{!messagesRoute?(<>
+
+  <Grid.Column floated="left" width={2}>
 <Sticky context={contextRef}>
 
 <SideMenu user = {user}/>
@@ -75,6 +81,27 @@ const contextRef = createRef();
 
 
 </Grid.Column>
+
+
+
+ </>) : (<>
+ 
+ <Grid.Column floated="left" width={1} />
+<Grid.Column width={15}>
+{children}
+</Grid.Column>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </>) }
+
+
 
 
 

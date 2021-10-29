@@ -1,4 +1,5 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect,useRef,useState} from 'react';
+import io from "socket.io-client";
 import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import CreatePost from '../components/Post/CreatePost';
@@ -10,6 +11,10 @@ import {PostDeleteToastr} from "../components/Layout/Toastr";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { EndMessage, PlaceHolderPosts } from '../components/Layout/PlaceHolderGroup';
 import cookie from "js-cookie";
+import getUserInfo from "../utils/getUserInfo";
+import MessageNotificationModal from "../components/Home/MessageNotificationModal";
+import newMsgSound from "../utils/newMsgSound";
+
 function Index({user,postsData,errorLoading}){
    // console.log({user,userFollowStats});
    //console.log(postsData)
@@ -19,10 +24,54 @@ function Index({user,postsData,errorLoading}){
    const [hasMore, setHasMore] = useState(true);
 
   const [pageNumber, setPageNumber] = useState(2);
+  const socket = useRef();
+   
+  const [newMessageReceived, setNewMessageReceived] = useState(null);
+  const [newMessageModal, showNewMessageModal] = useState(false);
 
    
-   
    useEffect(() => {
+
+    if(!socket.current){
+      socket.current = io(baseUrl);
+    }
+
+    if(socket.current){
+
+           socket.current.emit("join", {userId: user._id});
+          socket.current.on('newMsgReceived',async({newMsg})=>{
+
+           const {name,profilePicUrl} = await getUserInfo(newMsg.sender);
+
+           if(user.newMessagePopup){
+
+
+            setNewMessageReceived({
+
+              ...newMsg,
+              senderName: name,
+              senderProfilePic: profilePicUrl
+
+            });
+
+            showNewMessageModal(true);
+            }
+
+
+newMsgSound(name);
+           
+
+
+
+
+
+
+
+
+          });
+}
+
+
 
     document.title = `Welcome, ${user.name.split(" ")[0]}`;
 
@@ -57,6 +106,17 @@ function Index({user,postsData,errorLoading}){
     
     <>
     {showToastr && <PostDeleteToastr />}
+
+    {newMessageModal && newMessageReceived !== null && (
+        <MessageNotificationModal
+          socket={socket}
+          showNewMessageModal={showNewMessageModal}
+          newMessageModal={newMessageModal}
+          newMessageReceived={newMessageReceived}
+          user={user}
+        />
+      )} 
+
       <Segment>
         <CreatePost user={user} setPosts={setPosts} />
         {posts.length ===0 || errorLoading?(
