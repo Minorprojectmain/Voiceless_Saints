@@ -86,11 +86,12 @@ nextApp.prepare().then(() => {
   app.use("/api/profile", require("./api/profile"));
   app.use("/api/notifications", require("./api/notifications"));
   app.use("/api/chats", require("./api/chats"));
+  app.use("/api.reset",require("./api/reset"));
 
   app.all("*", (req, res) => handle(req, res));
 
   server.listen(PORT, err => {
     if (err) throw err;
-    console.log("Express server running");
+    console.log("Express server running on port 3000");
   });
 });
