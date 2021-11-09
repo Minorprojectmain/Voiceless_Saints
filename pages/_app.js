@@ -2,10 +2,13 @@ import App from "next/app";
 import axios from "axios";
 import { parseCookies, destroyCookie } from "nookies";
 import baseUrl from "../utils/baseUrl";
+import {Image} from "semantic-ui-react"
 import { redirectUser } from "../utils/authUser";
 import Layout from "../components/Layout/Layout";
 import "react-toastify/dist/ReactToastify.css";
+import "pure-react-carousel/dist/react-carousel.es.css"
 import "semantic-ui-css/semantic.min.css";
+
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -14,7 +17,9 @@ class MyApp extends App {
 
     const protectedRoutes =
       ctx.pathname === "/" ||
+      
       ctx.pathname === "/[username]" ||
+      ctx.pathname === "/lends" ||
       ctx.pathname === "/notifications" ||
       ctx.pathname === "/post/[postId]" ||
       ctx.pathname === "/messages";
@@ -51,9 +56,11 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
+     
       <Layout {...pageProps}>
         <Component {...pageProps} />
       </Layout>
+      
     );
   }
 }

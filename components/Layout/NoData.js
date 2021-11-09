@@ -37,6 +37,16 @@ export const NoPosts = () => (
   />
 );
 
+export const NoLends = () => (
+  <Message
+    info
+    icon="meh"
+    header="Hey!"
+    content="Oops!!No Lend Requests from other users!!"
+  />
+);
+
+
 export const NoNotifications = () => (
   <Message
     info

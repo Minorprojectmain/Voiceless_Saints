@@ -37,11 +37,11 @@ export const unfollowUser = async (userToUnfollowId, setUserFollowStats) => {
 
 export const profileUpdate = async (profile, setLoading, setError, profilePicUrl) => {
   try {
-    const { address,bio, facebook, youtube, twitter, instagram } = profile;
+    const { bio,address, facebook, youtube, twitter, instagram } = profile;
 
     await Axios.post(`/update`, {
-      address,
       bio,
+      address,
       facebook,
       youtube,
       twitter,
@@ -56,6 +56,7 @@ export const profileUpdate = async (profile, setLoading, setError, profilePicUrl
     setLoading(false);
   }
 };
+
 
 
 export const passwordUpdate = async (setSuccess, userPasswords) => {

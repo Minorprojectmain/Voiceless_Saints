@@ -62,6 +62,26 @@ router.get(`/posts/:username`, authMiddleware, async (req, res) => {
   }
 });
 
+router.get(`/lends/:username`, authMiddleware, async (req, res) => {
+  try {
+    const { username } = req.params;
+
+    const user = await UserModel.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.status(404).send("No User Found");
+    }
+
+    const lends = await LendModel.find({ user: user._id })
+      .sort({ createdAt: -1 })
+      .populate("user");
+
+    return res.json(lends);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Server Error");
+  }
+});
+
 // GET FOLLOWERS OF USER
 router.get("/followers/:userId", authMiddleware, async (req, res) => {
   try {
@@ -182,23 +202,18 @@ router.post("/update", authMiddleware, async (req, res) => {
   try {
     const { userId } = req;
 
-    const { address,bio, facebook, youtube, twitter, instagram, profilePicUrl } = req.body;
-
+    const { bio,address, facebook, youtube, twitter, instagram, profilePicUrl } = req.body;
     let profileFields = {};
-    profileFields.user = user._id;
+    profileFields.user = userId;
 
     profileFields.bio = bio;
     profileFields.address=address;
-
     profileFields.social = {};
-
     if (facebook) profileFields.social.facebook = facebook;
-
     if (youtube) profileFields.social.youtube = youtube;
-
     if (instagram) profileFields.social.instagram = instagram;
-
     if (twitter) profileFields.social.twitter = twitter;
+
 
     await ProfileModel.findOneAndUpdate(
       { user: userId },

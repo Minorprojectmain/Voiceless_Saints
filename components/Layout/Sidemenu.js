@@ -195,13 +195,41 @@ function SideMenu({ user: { unreadNotification, email, unreadMessage, username }
         </Link>
         <br />
 
+        <Link href="/lends">
+          <List.Item active={isActive("/lends")}>
+            <Icon
+              name="handshake"
+              size="large"
+              color={isActive("/lends") && "blue"}
+            />
+            <List.Content>
+              <List.Header content="Find A Home" />
+            </List.Content>
+          </List.Item>
+        </Link>
+        <br />
+
+        <Link href="http://localhost:8501">
+          <List.Item active={isActive("http://localhost:8501")}>
+            <Icon
+              name="magnify"
+              size="large"
+              color={isActive("http://localhost:8501") && "blue"}
+            />
+            <List.Content>
+              <List.Header content="Breed Identifier" />
+            </List.Content>
+          </List.Item>
+        </Link>
+        <br />
+
         <Link href="/messages">
           <List.Item active={isActive("/messages")}>
             <Icon
               name={unreadMessage ? "hand point right" : "mail outline"}
               size="large"
               color={
-                (isActive("/messages") && "teal") || (unreadMessage && "orange")
+                (isActive("/messages") && "white") || (unreadMessage && "orange")
               }
             />
             <List.Content>
@@ -211,13 +239,14 @@ function SideMenu({ user: { unreadNotification, email, unreadMessage, username }
         </Link>
         <br />
 
+        
         <Link href="/notifications">
           <List.Item active={isActive("/notifications")}>
             <Icon
               name={unreadNotification ? "hand point right" : "bell outline"}
               size="large"
               color={
-                (isActive("/notifications") && "teal") ||
+                (isActive("/notifications") && "blue") ||
                 (unreadNotification && "orange")
               }
             />

@@ -20,6 +20,7 @@ import ImageModal from "./ImageModal";
 import NoImageModal from "./NoImageModal";
 
 function CardPost({ post, user, setPosts, setShowToastr }) {
+  console.log(post);
   const [likes, setLikes] = useState(post.likes);
 
   const isLiked =

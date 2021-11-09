@@ -4,6 +4,7 @@ const UserModel = require("../models/UserModel");
 const FollowerModel = require("../models/FollowerModel");
 //const NotificationModel = require("../models/NotificationModel");
 const ChatModel = require("../models/ChatModel");
+//const LendModel=require("../models/LendModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const isEmail = require("validator/lib/isEmail");
@@ -53,6 +54,11 @@ router.post("/", async (req, res) => {
       await new ChatModel({ user: user._id, chats: [] }).save();
     }
 
+    // const lendModel = await LendModel.findOne({ user: user._id });
+
+    // if (!lendModel) {
+    //   await new LendModel({ user: user._id, lends: [] }).save();
+    // }
     const payload = { userId: user._id };
     jwt.sign(payload, process.env.jwtSecret, { expiresIn: "2d" }, (err, token) => {
       if (err) throw err;

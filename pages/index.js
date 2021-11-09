@@ -14,6 +14,8 @@ import cookie from "js-cookie";
 import getUserInfo from "../utils/getUserInfo";
 import MessageNotificationModal from "../components/Home/MessageNotificationModal";
 import newMsgSound from "../utils/newMsgSound";
+import {Header,Icon,Image} from "semantic-ui-react";
+
 
 function Index({user,postsData,errorLoading}){
    // console.log({user,userFollowStats});
@@ -105,6 +107,12 @@ newMsgSound(name);
     return(
     
     <>
+    <Image
+      attached
+      centered
+      size='large'
+      src='/Logo.png'
+    />
     {showToastr && <PostDeleteToastr />}
 
     {newMessageModal && newMessageReceived !== null && (

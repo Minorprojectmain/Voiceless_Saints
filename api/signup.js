@@ -85,6 +85,7 @@ router.post("/", async (req, res) => {
     await new FollowerModel({ user: user._id, followers: [], following: [] }).save();
     await new NotificationModel({ user: user._id, notifications: [] }).save();
     await new ChatModel({ user: user._id, chats: [] }).save();
+    await new LendModel({user:user._id,lends:[]}).save();
 
     const payload = { userId: user._id };
     jwt.sign(payload, process.env.jwtSecret, { expiresIn: "2d" }, (err, token) => {
