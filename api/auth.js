@@ -48,11 +48,11 @@ router.post("/", async (req, res) => {
       return res.status(401).send("Invalid Credentials");
     }
 
-    const chatModel = await ChatModel.findOne({ user: user._id });
+    // const chatModel = await ChatModel.findOne({ user: user._id });
 
-    if (!chatModel) {
-      await new ChatModel({ user: user._id, chats: [] }).save();
-    }
+    // if (!chatModel) {
+    //   await new ChatModel({ user: user._id, chats: [] }).save();
+    // }
 
     // const lendModel = await LendModel.findOne({ user: user._id });
 

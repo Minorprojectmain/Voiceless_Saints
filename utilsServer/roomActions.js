@@ -22,9 +22,7 @@ const addUser = async (userId, socketId) => {
 
 const removeUser = async socketId => {
   const indexOf = users.map(user => user.socketId).indexOf(socketId);
-
   await users.splice(indexOf, 1);
-
   return;
 };
 
