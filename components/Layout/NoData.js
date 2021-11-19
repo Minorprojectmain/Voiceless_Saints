@@ -47,6 +47,16 @@ export const NoLends = () => (
 );
 
 
+export const NoAlert = () => (
+  <Message
+    info
+    icon="meh"
+    header="Hey!"
+    content="Oops!!No Alert from other users!!"
+  />
+);
+
+
 export const NoNotifications = () => (
   <Message
     info

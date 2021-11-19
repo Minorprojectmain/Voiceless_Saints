@@ -163,6 +163,21 @@ function SideMenu({
         </Link>
         <br />
 
+        
+        <Link href="/alert">
+          <List.Item active={isActive("/alert")}>
+            <Icon
+              name="handshake"
+              size="large"
+              color={isActive("/alert") && "blue"}
+            />
+            <List.Content>
+              <List.Header content="Alerts" />
+            </List.Content>
+          </List.Item>
+        </Link>
+        <br />
+
         <Link href="http://localhost:8501">
           <List.Item active={isActive("http://localhost:8501")}>
             <Icon

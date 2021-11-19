@@ -87,8 +87,8 @@ nextApp.prepare().then(() => {
   app.use("/api/notifications", require("./api/notifications"));
   app.use("/api/chats", require("./api/chats"));
   app.use("/api/lends",require("./api/lends"));
-  app.use("/api.reset",require("./api/reset"));
-
+  app.use("/api/reset",require("./api/reset"));
+  app.use("/api/alert",require("./api/alert"));
   app.all("*", (req, res) => handle(req, res));
 
   server.listen(PORT, err => {
