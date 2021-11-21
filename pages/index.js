@@ -9,16 +9,19 @@ import { parseCookies } from "nookies";
 import { NoPosts } from "../components/Layout/NoData";
 import { PostDeleteToastr } from "../components/Layout/Toastr";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { PlaceHolderPosts, EndMessage } from "../components/Layout/PlaceHolderGroup";
+import {
+  PlaceHolderPosts,
+  EndMessage,
+} from "../components/Layout/PlaceHolderGroup";
 import cookie from "js-cookie";
 import getUserInfo from "../utils/getUserInfo";
 import MessageNotificationModal from "../components/Home/MessageNotificationModal";
 import newMsgSound from "../utils/newMsgSound";
-import {Header,Icon,Image} from "semantic-ui-react";
-
+import { Header, Icon, Image } from "semantic-ui-react";
+import NotificationPortal from "../components/Home/NotificationPortal";
 
 function Index({ user, postsData, errorLoading }) {
-  const [posts, setPosts] = useState(postsData||[]);
+  const [posts, setPosts] = useState(postsData || []);
   const [showToastr, setShowToastr] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
@@ -29,37 +32,40 @@ function Index({ user, postsData, errorLoading }) {
   const [newMessageReceived, setNewMessageReceived] = useState(null);
   const [newMessageModal, showNewMessageModal] = useState(false);
 
+  const [newNotification, setNewNotification] = useState(null);
+  const [notificationPopup, showNotificationPopup] = useState(false);
+
   useEffect(() => {
     if (!socket.current) {
       socket.current = io(baseUrl);
     }
 
-    // if (socket.current) {
-    //   socket.current.emit("join", { userId: user._id });
+    if (socket.current) {
+      socket.current.emit("join", { userId: user._id });
 
-    //   socket.current.on("newMsgReceived", async ({ newMsg }) => {
-    //     const { name, profilePicUrl } = await getUserInfo(newMsg.sender);
+      socket.current.on("newMsgReceived", async ({ newMsg }) => {
+        const { name, profilePicUrl } = await getUserInfo(newMsg.sender);
 
-    //     if (user.newMessagePopup) {
-    //       setNewMessageReceived({
-    //         ...newMsg,
-    //         senderName: name,
-    //         senderProfilePic: profilePicUrl
-    //       });
-    //       showNewMessageModal(true);
-    //     }
-    //     newMsgSound(name);
-    //   });
-    // }
+        if (user.newMessagePopup) {
+          setNewMessageReceived({
+            ...newMsg,
+            senderName: name,
+            senderProfilePic: profilePicUrl,
+          });
+          showNewMessageModal(true);
+        }
+        newMsgSound(name);
+      });
+    }
 
-    // document.title = `Welcome, ${user.name.split(" ")[0]}`;
+    document.title = `Welcome, ${user.name.split(" ")[0]}`;
 
-    // return () => {
-    //   if (socket.current) {
-    //     socket.current.emit("disconnect");
-    //     socket.current.off();
-    //   }
-    // };
+    return () => {
+      if (socket.current) {
+        socket.current.emit("disconnect");
+        socket.current.off();
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -70,13 +76,13 @@ function Index({ user, postsData, errorLoading }) {
     try {
       const res = await axios.get(`${baseUrl}/api/posts`, {
         headers: { Authorization: cookie.get("token") },
-        params: { pageNumber }
+        params: { pageNumber },
       });
 
       if (res.data.length === 0) setHasMore(false);
 
-      setPosts(prev => [...prev, ...res.data]);
-      setPageNumber(prev => prev + 1);
+      setPosts((prev) => [...prev, ...res.data]);
+      setPageNumber((prev) => prev + 1);
     } catch (error) {
       alert("Error fetching Posts");
     }
@@ -84,15 +90,32 @@ function Index({ user, postsData, errorLoading }) {
 
   if (posts.length === 0 || errorLoading) return <NoPosts />;
 
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.on(
+        "newNotificationReceived",
+        ({ name, profilePicUrl, username, postId }) => {
+          setNewNotification({ name, profilePicUrl, username, postId });
+
+          showNotificationPopup(true);
+        }
+      );
+    }
+  }, []);
+
   return (
     <>
-    <Image
-      attached
-      centered
-      size='large'
-      src='/Logo.png'
-    />
-    {showToastr && <PostDeleteToastr />}
+      <Image attached centered size="large" src="/Logo.png" />
+
+      {notificationPopup && newNotification !== null && (
+        <NotificationPortal
+          newNotification={newNotification}
+          notificationPopup={notificationPopup}
+          showNotificationPopup={showNotificationPopup}
+        />
+      )}
+
+      {showToastr && <PostDeleteToastr />}
 
       {newMessageModal && newMessageReceived !== null && (
         <MessageNotificationModal
@@ -114,8 +137,9 @@ function Index({ user, postsData, errorLoading }) {
           endMessage={<EndMessage />}
           dataLength={posts.length}
         >
-          {posts.map(post => (
+          {posts.map((post) => (
             <CardPost
+              socket={socket}
               key={post._id}
               post={post}
               user={user}
@@ -129,13 +153,13 @@ function Index({ user, postsData, errorLoading }) {
   );
 }
 
-Index.getInitialProps = async ctx => {
+Index.getInitialProps = async (ctx) => {
   try {
     const { token } = parseCookies(ctx);
 
     const res = await axios.get(`${baseUrl}/api/posts`, {
       headers: { Authorization: token },
-      params: { pageNumber: 1 }
+      params: { pageNumber: 1 },
     });
 
     return { postsData: res.data };
