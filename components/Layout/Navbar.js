@@ -12,6 +12,12 @@ function Navbar() {
   return (
     <Menu fluid borderless>
     <Container text>
+    <Link href='/homepage'>
+      <Menu.Item header active={isActive('/homepage')}>
+        <Icon size="large" name="home" />
+        Home
+      </Menu.Item>
+     </Link>
      <Link href='/login'>
       <Menu.Item header active={isActive('/login')}>
         <Icon size="large" name="sign in" />

@@ -16,6 +16,7 @@ function Signup() {
     email: "",
     password: "",
     bio: "",
+    address:"",
     facebook: "",
     youtube: "",
     twitter: "",

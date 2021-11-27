@@ -6,11 +6,11 @@ const LendSchema = new Schema(
   
     user: { type: Schema.Types.ObjectId, ref: "User" },
 
-    text: { type: String, required: true },
+    text: { type: String},
     
     petname:{ type:String},
 
-    location: { type: String,required: true },
+    location: { type: String },
 
     picUrl: { type: String },
 

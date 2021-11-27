@@ -56,9 +56,6 @@ router.post("/", async (req, res) => {
 
     // const lendModel = await LendModel.findOne({ user: user._id });
 
-    // if (!lendModel) {
-    //   await new LendModel({ user: user._id, lends: [] }).save();
-    // }
     const payload = { userId: user._id };
     jwt.sign(payload, process.env.jwtSecret, { expiresIn: "2d" }, (err, token) => {
       if (err) throw err;

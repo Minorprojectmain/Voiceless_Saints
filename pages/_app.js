@@ -27,7 +27,7 @@ class MyApp extends App {
       ctx.pathname === "/search" ||
       ctx.pathname === "/alert";
     if (!token) {
-      protectedRoutes && redirectUser(ctx, "/login");
+      protectedRoutes && redirectUser(ctx, "/homepage");
     }
     //
     else {

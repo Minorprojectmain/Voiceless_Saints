@@ -34,6 +34,10 @@ function Layout({ children, user }) {
           <style>{mediaStyles}</style>
 
           <MediaContextProvider>
+          
+          <div style={{backgroundImage: "url(/bg.jpg)",
+          backgroundSize:"cover",
+        maxWidth:"100%"}}>
             <div style={{ marginLeft: "1rem", marginRight: "1rem" }}>
               <Media greaterThanOrEqual="computer">
                 <Ref innerRef={contextRef}>
@@ -125,14 +129,19 @@ function Layout({ children, user }) {
                 </Grid>
               </Media>
             </div>
+            </div>
           </MediaContextProvider>
         </>
       ) : (
         <>
           <Navbar />
-          <Container text style={{ paddingTop: "1rem" }}>
+          <div style={{ backgroundImage: "url(/sdd.jpeg)",
+    backgroundSize:"cover",
+  maxWidth:"100%" }}>
+          <Container style={{ paddingTop: "1rem" }}>
             {children}
           </Container>
+          </div>
         </>
       )}
     </>

@@ -30,7 +30,7 @@ export const submitNewAlert = async (
 export const deleteAlert = async (alertId, setAlerts, setShowToastr) => {
   try {
     await Axios.delete(`/${alertId}`);
-    setLends(prev => prev.filter(alert => alert._id !== alertId));
+    setAlerts(prev => prev.filter(alert => alert._id !== alertId));
     setShowToastr(true);
   } catch (error) {
     alert(catchErrors(error));

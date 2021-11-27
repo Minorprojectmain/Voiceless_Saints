@@ -5,6 +5,7 @@ const ProfileModel = require("../models/ProfileModel");
 const FollowerModel = require("../models/FollowerModel");
 const NotificationModel = require("../models/NotificationModel");
 const ChatModel = require("../models/ChatModel");
+const LendModel = require("../models/LendModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const isEmail = require("validator/lib/isEmail");
@@ -38,8 +39,8 @@ router.post("/", async (req, res) => {
     email,
     username,
     password,
-    address,
     bio,
+    address,
     facebook,
     youtube,
     twitter,

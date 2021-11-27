@@ -17,7 +17,7 @@ import cookie from "js-cookie";
 import getUserInfo from "../utils/getUserInfo";
 import MessageNotificationModal from "../components/Home/MessageNotificationModal";
 import newMsgSound from "../utils/newMsgSound";
-import { Header, Icon, Image } from "semantic-ui-react";
+import { Header, Icon, Image,Divider } from "semantic-ui-react";
 import NotificationPortal from "../components/Home/NotificationPortal";
 
 function Index({ user, postsData, errorLoading }) {
@@ -128,6 +128,20 @@ function Index({ user, postsData, errorLoading }) {
       )}
 
       <Segment>
+      <Segment padded='very' style={{ backgroundImage: "url(/i_seg.jpg)",
+      backgroundSize:"cover",
+    maxWidth:"100%",
+  opacity:'0.92'}}>
+      <Header as='h2' icon textAlign='center'>
+      <Icon name='american sign language interpreting' loading color='orange' circular outline />
+      <Header.Content style={{color:'white',fontSize:'1.8em'}}>Share experiences with each other!Here</Header.Content>
+    </Header>
+    <Divider />
+    <p style={{fontSize:'1.5em',color:'white',textAlign:'right',fontFamily:'Bradley Hand, cursive'}}>Voiceless-Saints is an online platform dedicated to connecting dog owners with dog borrowers for walks, weekends or happy holidays. BorrowMyDoggy is passionate about helping dogs get more love and exercise, borrowers get special dog time and dog owners get the peace of mind that their dog is having fun.
+    </p>
+    </Segment>
+    <Header as="h2" color="yellow" textAlign="center">Post your experiences here...</Header>
+      
         <CreatePost user={user} setPosts={setPosts} />
 
         <InfiniteScroll
