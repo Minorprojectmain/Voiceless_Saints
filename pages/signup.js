@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Button, Message, Segment, Divider } from "semantic-ui-react";
+import { Form, Button, Message, Segment, Divider,Modal ,Header,Icon,List,Checkbox} from "semantic-ui-react";
 import CommonInputs from "../components/Common/CommonInputs";
 import ImageDropDiv from "../components/Common/ImageDropDiv";
 import { HeaderMessage, FooterMessage } from "../components/Common/WelcomeMessage";
@@ -7,6 +7,7 @@ import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import { registerUser } from "../utils/authUser";
 import uploadPic from "../utils/uploadPicToCloudinary";
+import Link from 'next/link'
 const regexUserName = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/;
 let cancel;
 
@@ -41,6 +42,7 @@ function Signup() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [formLoading, setFormLoading] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
+  const [open, setOpen] = React.useState(false)
 
   const [username, setUsername] = useState("");
   const [usernameLoading, setUsernameLoading] = useState(false);
@@ -196,6 +198,50 @@ function Signup() {
             setShowSocialLinks={setShowSocialLinks}
             handleChange={handleChange}
           />
+          
+          <Modal
+      closeIcon
+      open={open}
+      trigger={<Checkbox label="View Terms and Conditions" defaultChecked><a></a></Checkbox>}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+    >
+      <Header icon='info' content='Terms & Conditions' />
+      <Modal.Content>
+      <List ordered>
+      <List.Item>Any dispute/s between the Lender, Borrower and any third party is to be resolved by the Lender and/or Borrower. Voiceless Saints will not be responsible for finding a solution, settling, and/or offering an outcome to any issue, accident, incident, injury or difficulty that has occurred prior, during, or post creating a profile on the Voiceless Saints Site</List.Item>
+      <br />
+      <List.Item>Voiceless Saints do their best to check every profile that is created via the Site, this is a lengthy process so please understand that we must first complete this process before we can provide you with any information relating to a potential Lender and/or Borrower.</List.Item>
+      <br/>
+      <List.Item>
+      Voiceless Saints is not required to find lending and/or borrowing opportunities for non-registered Members.
+       
+      </List.Item>
+      <br />
+      <List.Item>
+      Voiceless Saints expects all Members to be respectful, truthful and honest when communicating and negotiating terms with other Members and with Voiceless Saints staff.
+      </List.Item>
+      <br />
+      <List.Item>
+      If you purposely provide Voiceless Saints with incorrect information, or you provide Voiceless Saints with a reason to deem you untrustworthy (the basis of the reason is determined by Voiceless Saints), understand that you will not be refunded and you will no longer be part of the Voiceless Saints community. 
+      </List.Item>
+      <br />
+      <List.Item>Voiceless Saints do not do Police Checks. If you would like a Police Check completed prior to lending and/or borrowing this is up to you to arrange and pay for.</List.Item>
+    </List>
+    <br />
+    <List.Item>
+    If you have any questions or concerns please feel free to contact us via email (voiceless_Saints@gmail.com). 
+      </List.Item>
+      </Modal.Content>
+      <Modal.Actions>
+        <Button color='red' href="/">
+          <Icon name='remove' /> Disagree
+        </Button>
+        <Button color='green' onClick={() => setOpen(false)}>
+          <Icon name='checkmark' /> Agree
+        </Button>
+      </Modal.Actions>
+    </Modal>
 
           <Divider hidden />
           <Button
@@ -207,7 +253,7 @@ function Signup() {
           />
         </Segment>
       </Form>
-
+      
       <FooterMessage />
     </>
   );

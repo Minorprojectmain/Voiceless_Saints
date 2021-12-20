@@ -19,6 +19,7 @@ console.log(alertData)
 const [alert,setAlerts]=useState(alertData);
 const [showToastr,setShowToastr]=useState(false);
 const [open, setOpen] = useState(false);
+
 useEffect(()=>{
 showToastr && setTimeout(()=>setShowToastr(false),3000)
 },[showToastr]);
@@ -223,7 +224,6 @@ const [newAlert, setNewAlert] = useState({ text: "", location: ""});
     <Item.Group>  
     {alert.map((alert)=>
       (
-        
       <CardAlert
       key={alert._id} 
       alert={alert} 

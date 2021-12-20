@@ -74,7 +74,10 @@ function CardLend({ lend, user, setLends, setShowToastr}) {
             />
             
             <Button floated="right" color='blue' >
+            <Link href="/messages">
               Borrow
+              </Link>
+              
             </Button>
         
       

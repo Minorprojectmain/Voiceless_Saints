@@ -27,6 +27,24 @@ function MobileHeader({ user: { unreadNotification, email, unreadMessage, userna
             </Menu.Item>
           </Link>
 
+          <Link href="/lends">
+            <Menu.Item header active={isActive("/lends")}>
+            <Icon
+            name="handshake"
+            size="large"
+          />
+            </Menu.Item>
+          </Link>
+
+          <Link href="/alert">
+            <Menu.Item header active={isActive("/alert") || unreadMessage}>
+            <Icon
+            name="handshake"
+            size="large"
+          />
+            </Menu.Item>
+          </Link>
+
           <Link href="/notifications">
             <Menu.Item header active={isActive("/notifications") || unreadNotification}>
               <Icon

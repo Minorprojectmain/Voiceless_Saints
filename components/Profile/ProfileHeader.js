@@ -112,6 +112,8 @@ function ProfileHeader({
               />
             )}
           </Grid.Column>
+          <Button color='green'>View Profile Reviews</Button>
+
         </Grid>
       </Segment>
     </>
